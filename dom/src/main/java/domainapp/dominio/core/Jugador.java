@@ -25,7 +25,7 @@ import domainapp.dominio.auxiliares.Documentacion;
 
 @DomainObject(bounded=true,objectType = "JUGADOR")
 @PersistenceCapable(identityType=IdentityType.DATASTORE)
-@MemberGroupLayout(columnSpans={4,4,4,8},right="Padres",left="Datos Personales"+"Cuotas",middle="Parte Medica")
+@MemberGroupLayout(columnSpans={4,4,4,8},right="Padres",left="Datos Personales",middle="Parte Medica")
 public class Jugador {
 
 	private String nombre;
@@ -209,6 +209,7 @@ public class Jugador {
 	
 	@Column(allowsNull="true")
 	@MemberOrder(sequence= "10", name="Cuotas")
+	
 	public Cuota getCuotas() 
 	{
 

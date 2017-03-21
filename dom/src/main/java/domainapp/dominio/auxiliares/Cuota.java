@@ -3,13 +3,14 @@ package domainapp.dominio.auxiliares;
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
-import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.MemberOrder;
 
 
 @PersistenceCapable(identityType=IdentityType.DATASTORE)
-@DomainObjectLayout(named="Cuota")
+@DomainObject
 public class Cuota {
+
 
 	private double enero=0;
 	private double febrero=0;
@@ -24,7 +25,7 @@ public class Cuota {
 	private double noviembre=0;
 	private double diciembre=0;
 	
-	
+
 	@Column(allowsNull="true")
 	@MemberOrder(sequence= "1",name="Cuota")
 	public double getEnero() {

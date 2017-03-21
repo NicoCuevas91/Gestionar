@@ -2,17 +2,16 @@ package domainapp.dominio.core;
 
 import java.util.List;
 
+
 import javax.jdo.annotations.Column;
 import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
-
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.MemberGroupLayout;
 import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Title;
-
 import domainapp.dominio.auxiliares.Cuota;
-
+ 
 
 
 
@@ -27,8 +26,8 @@ public class Socio {
 	private String telefono;
 	private String mail;
 	private boolean socio;
-	private Cuota cSocial;
-	private Cuota cActividad;
+	private Cuota cuotaSocial;
+	private Cuota cuotaActividad;
 	private List<Jugador> hijos;
 	
 	
@@ -83,19 +82,22 @@ public class Socio {
 	public void setSocio(boolean socio) {
 		this.socio = socio;
 	}
+	
 	@Column(allowsNull="true")
 	@MemberOrder(sequence= "7",name="Datos Personales")
-	public Cuota getCSocial() {
-		return cSocial;
+	public Cuota getCuotaSocial() {
+		return cuotaSocial;
 	}
-	public void setCSocial(Cuota cSocial) {
-		this.cSocial = cSocial;
+	public void setCuotaSocial(Cuota cuotaSocial) {
+		this.cuotaSocial = cuotaSocial;
 	}
-	public Cuota getcActividad() {
-		return cActividad;
+	@Column(allowsNull="true")
+	@MemberOrder(sequence= "8",name="Datos Personales")
+	public Cuota getCuotaActividad() {
+		return cuotaActividad;
 	}
-	public void setcActividad(Cuota cActividad) {
-		this.cActividad = cActividad;
+	public void setCuotaActividad(Cuota cuotaActividad) {
+		this.cuotaActividad = cuotaActividad;
 	}
 	public List<Jugador> getHijos() {
 		return hijos;

@@ -12,6 +12,7 @@ import domainapp.dominio.auxiliares.Cuota;
 import domainapp.dominio.auxiliares.Disciplina;
 import domainapp.dominio.auxiliares.Documentacion;
 import domainapp.dominio.core.Jugador;
+import domainapp.dominio.core.Socio;
 
 
 
@@ -64,17 +65,34 @@ public class Cargar {
     	j.setCuotas(new Cuota());
     	
     	container.persistIfNotAlready(j);
-//Agregar boton de cargar documentacion
+
     	
     	return j;
-
-//    	private Disciplina disciplina;
-
-//    	private Socio madre;
-//    	private Socio padre;
+	}  	
+    
+    public Socio CargarSocio
+    (
+    		@ParameterLayout(named="Nombre y Apellido")final String nombre,
+			 @ParameterLayout(named="DNI")final String DNI,
+			 @ParameterLayout(named="Telefono")final String telefono,
+			 @ParameterLayout(named="Mail")final String mail,
+			 @ParameterLayout(named="Direccion")final String direccion,
+			 @ParameterLayout(named="Socio")final boolean socio
+	)
+    {
+    	final Socio s= container.newTransientInstance(Socio.class);
+    	s.setNombre(nombre);
+    	s.setDNI(DNI);
+    	s.setDireccion(direccion);
+    	s.setMail(mail);
+    	s.setTelefono(telefono);
+    	s.setSocio(socio);
+    	s.setCuotaActividad(new Cuota());
+    	s.setCuotaSocial(new Cuota());
+    	container.persistIfNotAlready(s);
     	
-    	
-	}
+    	return s;
+    }
     
     
     
