@@ -1,6 +1,8 @@
 package domainapp.servicio;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.isis.applib.DomainObjectContainer;
 import org.apache.isis.applib.annotation.DomainService;
@@ -72,7 +74,7 @@ public class Cargar {
     
     public Socio CargarSocio
     (
-    		@ParameterLayout(named="Nombre y Apellido")final String nombre,
+    		 @ParameterLayout(named="Nombre y Apellido")final String nombre,
 			 @ParameterLayout(named="DNI")final String DNI,
 			 @ParameterLayout(named="Telefono")final String telefono,
 			 @ParameterLayout(named="Mail")final String mail,
@@ -94,6 +96,21 @@ public class Cargar {
     	return s;
     }
     
+    public Socio cargarHijo( @ParameterLayout(named="Jugador") Jugador a, Socio b){
+    	List<Jugador> aux = b.getHijos();
+    	if (aux == null)
+    		aux = new ArrayList<Jugador>();
+    	aux.add(a);
+    	b.setHijos(aux);
+    	return b;
+    }
+    
+    public boolean hideCargarHijo( @ParameterLayout(named="Jugador") Jugador a, Socio b){
+    	boolean bandera = false;
+    	if (b == null)
+    		bandera = true;
+    	return bandera;
+    }
     
     
     

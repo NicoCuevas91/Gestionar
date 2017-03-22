@@ -20,7 +20,7 @@ import domainapp.dominio.auxiliares.Documentacion;
 @javax.jdo.annotations.Queries
 ({
  
-    @javax.jdo.annotations.Query(name = "buscarPorFecha", language = "JDOQL",value = "SELECT "+ "FROM dominio.core.jugador "+ "WHERE fechaNacimiento == :fnacimiento")
+    @javax.jdo.annotations.Query(name = "buscarPorCategoria", language = "JDOQL",value = "SELECT "+ "FROM dominio.core.jugador "+ "WHERE categoria == :categoria")
 })
 
 @DomainObject(bounded=true,objectType = "JUGADOR")
